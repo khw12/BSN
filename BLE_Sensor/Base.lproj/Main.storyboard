@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="dbK-hy-7ap">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
+    </dependencies>
+    <scenes>
+        <!--BLE Devices-->
+        <scene sceneID="MMK-iu-GHJ">
+            <objects>
+                <tableViewController title="BLE Devices" id="5Xl-so-frV" customClass="MyTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="emX-wu-bfU">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="DeviceCell" id="oZD-2u-QaZ">
+                                <rect key="frame" x="0.0" y="92" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="oZD-2u-QaZ" id="Z8G-jm-Aip">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="vYD-Er-DMB" kind="show" identifier="ConnectDevice" id="Noa-TC-GfE"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="5Xl-so-frV" id="925-7q-IDC"/>
+                            <outlet property="delegate" destination="5Xl-so-frV" id="7Kt-vd-AN0"/>
+                        </connections>
+                    </tableView>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="BLE Devices" id="lC4-lG-Hzs">
+                        <barButtonItem key="rightBarButtonItem" title="Start" id="opR-K8-7Ud">
+                            <connections>
+                                <action selector="StartScan:" destination="5Xl-so-frV" id="fDf-k0-Px8"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="StartButton" destination="opR-K8-7Ud" id="HtM-eR-leW"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NbW-kp-BMG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="131.5" y="401.5"/>
+        </scene>
+        <!--Sensor -->
+        <scene sceneID="byy-oj-ZnX">
+            <objects>
+                <viewController id="vYD-Er-DMB" customClass="MySensorDataViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Phg-JX-wNq"/>
+                        <viewControllerLayoutGuide type="bottom" id="bKT-D2-D5r"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" verticalCompressionResistancePriority="752" id="zcm-QP-HYj">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view autoresizesSubviews="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rui-hc-bvQ" customClass="GraphView">
+                                <rect key="frame" x="0.0" y="64" width="375" height="180"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <view autoresizesSubviews="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EUn-CX-sMX" customClass="GraphView">
+                                <rect key="frame" x="0.0" y="276" width="375" height="89"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <view autoresizesSubviews="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Z3V-ZW-kaU" customClass="GraphView">
+                                <rect key="frame" x="0.0" y="361" width="375" height="98"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <view autoresizesSubviews="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gFt-bx-1ua" customClass="GraphView">
+                                <rect key="frame" x="0.0" y="439" width="375" height="116"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <view autoresizesSubviews="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dD1-lx-ZcE" customClass="GraphView">
+                                <rect key="frame" x="0.0" y="515" width="375" height="116"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <rect key="contentStretch" x="0.0" y="0.0" width="1" height="0.29999999999999999"/>
+                    </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Sensor " id="stR-eY-5ZB">
+                        <rightBarButtonItems>
+                            <barButtonItem title="Yellow" id="3Rm-Cp-PQh">
+                                <connections>
+                                    <action selector="LED_switch:" destination="vYD-Er-DMB" id="Zpj-40-SMV"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="Green" id="6QZ-Xw-6VU">
+                                <connections>
+                                    <action selector="Green_LED:" destination="vYD-Er-DMB" id="Gnu-Wj-sV6"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="graph" destination="rui-hc-bvQ" id="PzK-El-u6N"/>
+                        <outlet property="graph1" destination="EUn-CX-sMX" id="EGi-AA-REB"/>
+                        <outlet property="graph2" destination="Z3V-ZW-kaU" id="6mT-as-dtR"/>
+                        <outlet property="graph3" destination="gFt-bx-1ua" id="3YK-o8-nYC"/>
+                        <outlet property="graph4" destination="dD1-lx-ZcE" id="SLH-Ju-IL7"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kfH-8N-Wrb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="669.5" y="731.5"/>
+        </scene>
+        <!--NavigationController-->
+        <scene sceneID="MDh-7L-D27">
+            <objects>
+                <navigationController title="NavigationController" id="dbK-hy-7ap" sceneMemberID="viewController">
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="EgN-Ne-op8">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="5Xl-so-frV" kind="relationship" relationship="rootViewController" id="x1J-6H-5l8"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ugQ-Al-kR8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-531" y="485"/>
+        </scene>
+    </scenes>
+</document>

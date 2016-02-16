@@ -1,0 +1,547 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		275110351C5CD5F700538284 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 275110341C5CD5F700538284 /* AppDelegate.m */; };
+		2751103C1C5CD61400538284 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 275110361C5CD61400538284 /* Assets.xcassets */; };
+		2751103D1C5CD61400538284 /* BLE_Device.m in Sources */ = {isa = PBXBuildFile; fileRef = 275110381C5CD61400538284 /* BLE_Device.m */; };
+		2751103F1C5CD61400538284 /* MyTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2751103B1C5CD61400538284 /* MyTableViewController.m */; };
+		275110441C5CD63800538284 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 275110401C5CD63800538284 /* LaunchScreen.storyboard */; };
+		275110451C5CD63800538284 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 275110421C5CD63800538284 /* Main.storyboard */; };
+		275110471C5CD64600538284 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 275110461C5CD64600538284 /* main.m */; };
+		275110501C5D69C700538284 /* BLE_SensorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 275110481C5CD66600538284 /* BLE_SensorTests.m */; };
+		275110521C5D69D200538284 /* BLE_SensorUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2751104C1C5CD67600538284 /* BLE_SensorUITests.m */; };
+		275110571C5D831200538284 /* MySensorDataViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 275110561C5D831200538284 /* MySensorDataViewController.m */; };
+		2751105B1C5D899200538284 /* GraphView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2751105A1C5D899200538284 /* GraphView.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		275110111C57BBCF00538284 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 27510FEF1C57BBCF00538284 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 27510FF61C57BBCF00538284;
+			remoteInfo = BLE_Scan;
+		};
+		2751101C1C57BBCF00538284 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 27510FEF1C57BBCF00538284 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 27510FF61C57BBCF00538284;
+			remoteInfo = BLE_Scan;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		27510FF71C57BBCF00538284 /* BLE_Sensor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BLE_Sensor.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		275110101C57BBCF00538284 /* BLE_SensorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BLE_SensorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		2751101B1C57BBCF00538284 /* BLE_SensorUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BLE_SensorUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		275110331C5CD5F700538284 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = BLE_Sensor/AppDelegate.h; sourceTree = SOURCE_ROOT; };
+		275110341C5CD5F700538284 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = BLE_Sensor/AppDelegate.m; sourceTree = SOURCE_ROOT; };
+		275110361C5CD61400538284 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = BLE_Sensor/Assets.xcassets; sourceTree = SOURCE_ROOT; };
+		275110371C5CD61400538284 /* BLE_Device.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BLE_Device.h; path = BLE_Sensor/BLE_Device.h; sourceTree = SOURCE_ROOT; };
+		275110381C5CD61400538284 /* BLE_Device.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BLE_Device.m; path = BLE_Sensor/BLE_Device.m; sourceTree = SOURCE_ROOT; };
+		275110391C5CD61400538284 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = BLE_Sensor/Info.plist; sourceTree = SOURCE_ROOT; };
+		2751103A1C5CD61400538284 /* MyTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyTableViewController.h; path = BLE_Sensor/MyTableViewController.h; sourceTree = SOURCE_ROOT; };
+		2751103B1C5CD61400538284 /* MyTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyTableViewController.m; path = BLE_Sensor/MyTableViewController.m; sourceTree = SOURCE_ROOT; };
+		275110411C5CD63800538284 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = BLE_Sensor/Base.lproj/LaunchScreen.storyboard; sourceTree = SOURCE_ROOT; };
+		275110431C5CD63800538284 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = BLE_Sensor/Base.lproj/Main.storyboard; sourceTree = SOURCE_ROOT; };
+		275110461C5CD64600538284 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = BLE_Sensor/main.m; sourceTree = SOURCE_ROOT; };
+		275110481C5CD66600538284 /* BLE_SensorTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BLE_SensorTests.m; path = BLE_SensorTests/BLE_SensorTests.m; sourceTree = SOURCE_ROOT; };
+		275110491C5CD66600538284 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = BLE_SensorTests/Info.plist; sourceTree = SOURCE_ROOT; };
+		2751104C1C5CD67600538284 /* BLE_SensorUITests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BLE_SensorUITests.m; path = BLE_SensorUITests/BLE_SensorUITests.m; sourceTree = SOURCE_ROOT; };
+		2751104D1C5CD67600538284 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = BLE_SensorUITests/Info.plist; sourceTree = SOURCE_ROOT; };
+		275110551C5D831200538284 /* MySensorDataViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MySensorDataViewController.h; path = BLE_Sensor/MySensorDataViewController.h; sourceTree = SOURCE_ROOT; };
+		275110561C5D831200538284 /* MySensorDataViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MySensorDataViewController.m; path = BLE_Sensor/MySensorDataViewController.m; sourceTree = SOURCE_ROOT; };
+		275110581C5D850C00538284 /* BLE_Services.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = BLE_Services.h; path = BLE_Sensor/BLE_Services.h; sourceTree = SOURCE_ROOT; };
+		275110591C5D899200538284 /* GraphView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GraphView.h; path = BLE_Sensor/GraphView.h; sourceTree = SOURCE_ROOT; };
+		2751105A1C5D899200538284 /* GraphView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GraphView.m; path = BLE_Sensor/GraphView.m; sourceTree = SOURCE_ROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		27510FF41C57BBCF00538284 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2751100D1C57BBCF00538284 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		275110181C57BBCF00538284 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		27510FEE1C57BBCF00538284 = {
+			isa = PBXGroup;
+			children = (
+				27510FF91C57BBCF00538284 /* BLE_Sensor */,
+				275110131C57BBCF00538284 /* BLE_SensorTests */,
+				2751101E1C57BBCF00538284 /* BLE_SensorUITests */,
+				27510FF81C57BBCF00538284 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		27510FF81C57BBCF00538284 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				27510FF71C57BBCF00538284 /* BLE_Sensor.app */,
+				275110101C57BBCF00538284 /* BLE_SensorTests.xctest */,
+				2751101B1C57BBCF00538284 /* BLE_SensorUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		27510FF91C57BBCF00538284 /* BLE_Sensor */ = {
+			isa = PBXGroup;
+			children = (
+				275110401C5CD63800538284 /* LaunchScreen.storyboard */,
+				275110421C5CD63800538284 /* Main.storyboard */,
+				275110551C5D831200538284 /* MySensorDataViewController.h */,
+				275110561C5D831200538284 /* MySensorDataViewController.m */,
+				275110361C5CD61400538284 /* Assets.xcassets */,
+				275110371C5CD61400538284 /* BLE_Device.h */,
+				275110381C5CD61400538284 /* BLE_Device.m */,
+				275110391C5CD61400538284 /* Info.plist */,
+				2751103A1C5CD61400538284 /* MyTableViewController.h */,
+				2751103B1C5CD61400538284 /* MyTableViewController.m */,
+				275110581C5D850C00538284 /* BLE_Services.h */,
+				275110331C5CD5F700538284 /* AppDelegate.h */,
+				275110341C5CD5F700538284 /* AppDelegate.m */,
+				27510FFA1C57BBCF00538284 /* Supporting Files */,
+				275110591C5D899200538284 /* GraphView.h */,
+				2751105A1C5D899200538284 /* GraphView.m */,
+			);
+			name = BLE_Sensor;
+			path = BLE_Scan;
+			sourceTree = "<group>";
+		};
+		27510FFA1C57BBCF00538284 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				275110461C5CD64600538284 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		275110131C57BBCF00538284 /* BLE_SensorTests */ = {
+			isa = PBXGroup;
+			children = (
+				275110481C5CD66600538284 /* BLE_SensorTests.m */,
+				275110491C5CD66600538284 /* Info.plist */,
+			);
+			name = BLE_SensorTests;
+			path = BLE_ScanTests;
+			sourceTree = "<group>";
+		};
+		2751101E1C57BBCF00538284 /* BLE_SensorUITests */ = {
+			isa = PBXGroup;
+			children = (
+				2751104C1C5CD67600538284 /* BLE_SensorUITests.m */,
+				2751104D1C5CD67600538284 /* Info.plist */,
+			);
+			name = BLE_SensorUITests;
+			path = BLE_ScanUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		27510FF61C57BBCF00538284 /* BLE_Sensor */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 275110241C57BBCF00538284 /* Build configuration list for PBXNativeTarget "BLE_Sensor" */;
+			buildPhases = (
+				27510FF31C57BBCF00538284 /* Sources */,
+				27510FF41C57BBCF00538284 /* Frameworks */,
+				27510FF51C57BBCF00538284 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = BLE_Sensor;
+			productName = BLE_Scan;
+			productReference = 27510FF71C57BBCF00538284 /* BLE_Sensor.app */;
+			productType = "com.apple.product-type.application";
+		};
+		2751100F1C57BBCF00538284 /* BLE_SensorTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 275110271C57BBCF00538284 /* Build configuration list for PBXNativeTarget "BLE_SensorTests" */;
+			buildPhases = (
+				2751100C1C57BBCF00538284 /* Sources */,
+				2751100D1C57BBCF00538284 /* Frameworks */,
+				2751100E1C57BBCF00538284 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				275110121C57BBCF00538284 /* PBXTargetDependency */,
+			);
+			name = BLE_SensorTests;
+			productName = BLE_ScanTests;
+			productReference = 275110101C57BBCF00538284 /* BLE_SensorTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		2751101A1C57BBCF00538284 /* BLE_SensorUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2751102A1C57BBCF00538284 /* Build configuration list for PBXNativeTarget "BLE_SensorUITests" */;
+			buildPhases = (
+				275110171C57BBCF00538284 /* Sources */,
+				275110181C57BBCF00538284 /* Frameworks */,
+				275110191C57BBCF00538284 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2751101D1C57BBCF00538284 /* PBXTargetDependency */,
+			);
+			name = BLE_SensorUITests;
+			productName = BLE_ScanUITests;
+			productReference = 2751101B1C57BBCF00538284 /* BLE_SensorUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		27510FEF1C57BBCF00538284 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0720;
+				ORGANIZATIONNAME = "Benny Lo";
+				TargetAttributes = {
+					27510FF61C57BBCF00538284 = {
+						CreatedOnToolsVersion = 7.2;
+					};
+					2751100F1C57BBCF00538284 = {
+						CreatedOnToolsVersion = 7.2;
+						TestTargetID = 27510FF61C57BBCF00538284;
+					};
+					2751101A1C57BBCF00538284 = {
+						CreatedOnToolsVersion = 7.2;
+						TestTargetID = 27510FF61C57BBCF00538284;
+					};
+				};
+			};
+			buildConfigurationList = 27510FF21C57BBCF00538284 /* Build configuration list for PBXProject "BLE_Sensor" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 27510FEE1C57BBCF00538284;
+			productRefGroup = 27510FF81C57BBCF00538284 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				27510FF61C57BBCF00538284 /* BLE_Sensor */,
+				2751100F1C57BBCF00538284 /* BLE_SensorTests */,
+				2751101A1C57BBCF00538284 /* BLE_SensorUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		27510FF51C57BBCF00538284 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				275110441C5CD63800538284 /* LaunchScreen.storyboard in Resources */,
+				2751103C1C5CD61400538284 /* Assets.xcassets in Resources */,
+				275110451C5CD63800538284 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2751100E1C57BBCF00538284 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		275110191C57BBCF00538284 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		27510FF31C57BBCF00538284 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2751103D1C5CD61400538284 /* BLE_Device.m in Sources */,
+				2751103F1C5CD61400538284 /* MyTableViewController.m in Sources */,
+				275110471C5CD64600538284 /* main.m in Sources */,
+				2751105B1C5D899200538284 /* GraphView.m in Sources */,
+				275110571C5D831200538284 /* MySensorDataViewController.m in Sources */,
+				275110351C5CD5F700538284 /* AppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2751100C1C57BBCF00538284 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				275110501C5D69C700538284 /* BLE_SensorTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		275110171C57BBCF00538284 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				275110521C5D69D200538284 /* BLE_SensorUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		275110121C57BBCF00538284 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 27510FF61C57BBCF00538284 /* BLE_Sensor */;
+			targetProxy = 275110111C57BBCF00538284 /* PBXContainerItemProxy */;
+		};
+		2751101D1C57BBCF00538284 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 27510FF61C57BBCF00538284 /* BLE_Sensor */;
+			targetProxy = 2751101C1C57BBCF00538284 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		275110401C5CD63800538284 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				275110411C5CD63800538284 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		275110421C5CD63800538284 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				275110431C5CD63800538284 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		275110221C57BBCF00538284 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		275110231C57BBCF00538284 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		275110251C57BBCF00538284 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "$(SRCROOT)/BLE_Sensor/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.sensixa.BLE-Sensor";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		275110261C57BBCF00538284 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "$(SRCROOT)/BLE_Sensor/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.sensixa.BLE-Sensor";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		275110281C57BBCF00538284 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = BLE_ScanTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.sensixa.BLE-ScanTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BLE_Sensor.app/BLE_Sensor";
+			};
+			name = Debug;
+		};
+		275110291C57BBCF00538284 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = BLE_ScanTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.sensixa.BLE-ScanTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BLE_Sensor.app/BLE_Sensor";
+			};
+			name = Release;
+		};
+		2751102B1C57BBCF00538284 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = BLE_ScanUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.sensixa.BLE-ScanUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = BLE_Scan;
+				USES_XCTRUNNER = YES;
+			};
+			name = Debug;
+		};
+		2751102C1C57BBCF00538284 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = BLE_ScanUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.sensixa.BLE-ScanUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = BLE_Scan;
+				USES_XCTRUNNER = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		27510FF21C57BBCF00538284 /* Build configuration list for PBXProject "BLE_Sensor" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				275110221C57BBCF00538284 /* Debug */,
+				275110231C57BBCF00538284 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		275110241C57BBCF00538284 /* Build configuration list for PBXNativeTarget "BLE_Sensor" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				275110251C57BBCF00538284 /* Debug */,
+				275110261C57BBCF00538284 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		275110271C57BBCF00538284 /* Build configuration list for PBXNativeTarget "BLE_SensorTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				275110281C57BBCF00538284 /* Debug */,
+				275110291C57BBCF00538284 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2751102A1C57BBCF00538284 /* Build configuration list for PBXNativeTarget "BLE_SensorUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2751102B1C57BBCF00538284 /* Debug */,
+				2751102C1C57BBCF00538284 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 27510FEF1C57BBCF00538284 /* Project object */;
+}
