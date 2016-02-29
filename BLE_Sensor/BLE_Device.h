@@ -15,5 +15,11 @@
 @property NSString *deviceName; //Name of the BLE device
 @property NSString *identifier; //The unique ID of the device
 @property NSNumber *RSSI;       //The RSSI value
+
+@property NSArray *location;    //Location of BLE device
+@property double n;
+@property double R1;
+@property double distance;
+
 @property CBPeripheral *peripheral;//pointer to the BLE perherial 
 @end

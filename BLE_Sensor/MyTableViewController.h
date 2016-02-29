@@ -13,6 +13,7 @@
 #import "BLE_Services.h"
 
 @interface MyTableViewController : UITableViewController
+@property (weak, nonatomic) IBOutlet UILabel *locationLabel;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *StartButton;//the pointer to the 'Start' button
 @property (strong,nonatomic)NSMutableArray *BLEdevices;//the array of BLE devices
 @property (strong, nonatomic) CBPeripheral *connectedPeripheral;//pointer to the connected periperhal

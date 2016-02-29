@@ -99,6 +99,10 @@ bool showAccel=true,showGyro=true,showMag=true,showTemp=true,showDust=false;//fl
 //=====================================================================
 - (void) centralManager:(CBCentralManager *)central didDiscoverPeripheral:(CBPeripheral *)peripheral advertisementData:(NSDictionary *)advertisementData RSSI:(NSNumber *)RSSI
 {//discovered a peripheral
+    BLEdevices = [[NSMutableArray alloc]init];//initialise the list of devices
+    BLEservices=[[NSMutableArray alloc]init];//initialise the list of BLE services
+    BLEcharacteristics=[[NSMutableArray alloc]init];//initialise the list of characteristics
+    
     //search to see if the device is already on the list
     for (int i=0;i<[BLEdevices count];i++)
     {
@@ -120,6 +124,7 @@ bool showAccel=true,showGyro=true,showMag=true,showTemp=true,showDust=false;//fl
     item1.peripheral=peripheral;
     item1.RSSI=RSSI;
     [BLEdevices addObject:item1];
+    [self find3NearestSensor];
     [self.tableView reloadData];
 }
 
@@ -396,6 +401,46 @@ bool showAccel=true,showGyro=true,showMag=true,showTemp=true,showDust=false;//fl
     return pow(10, diffR);
 }
 
+// find 3 nearest sensor to perform triangulation
+- (void) find3NearestSensor {
+    NSMutableArray *sensorArray = [[NSMutableArray alloc] init];
+    for (int i = 0; i < [BLEdevices count]; i++) {
+        BLE_Device *item=[BLEdevices objectAtIndex:i];
+        if ([[item.identifier substringWithRange:NSMakeRange(1, 8)] isEqualToString:@"27FE3990"]) {
+            item.location = [[NSArray alloc] initWithObjects:@"0",@"0",nil];
+            item.n = -0.99;
+            item.R1 = -92.3;
+            item.distance = [self computeDistance:item.n :item.R1 :[item.RSSI doubleValue]];
+            [sensorArray addObject:item];
+        } else if ([[item.identifier substringWithRange:NSMakeRange(1, 8)] isEqualToString:@"B002CE6D"]) {
+            item.location = [[NSArray alloc] initWithObjects:@"3",@"2",nil];
+            item.n = -1.47;
+            item.R1 = -92;
+            item.distance = [self computeDistance:item.n :item.R1 :[item.RSSI doubleValue]];
+            [sensorArray addObject:item];
+        } else if ([[item.identifier substringWithRange:NSMakeRange(1, 8)] isEqualToString:@"63D045BC"]) {
+            item.location = [[NSArray alloc] initWithObjects:@"6",@"0",nil];
+            item.n = -1.16;
+            item.R1 = -93.7;
+            item.distance = [self computeDistance:item.n :item.R1 :[item.RSSI doubleValue]];
+            [sensorArray addObject:item];
+        } else if ([[item.identifier substringWithRange:NSMakeRange(1, 8)] isEqualToString:@"F164ED61"]) {
+            item.location = [[NSArray alloc] initWithObjects:@"9",@"3",nil];
+            item.n = -0.76;
+            item.n = -94;
+            item.distance = [self computeDistance:item.n :item.R1 :[item.RSSI doubleValue]];
+            [sensorArray addObject:item];
+        }
+    }
+    
+    if ([sensorArray count] >= 3) {
+        BLE_Device *item1 = sensorArray[0];
+        BLE_Device *item2 = sensorArray[1];
+        BLE_Device *item3 = sensorArray[2];
+        [self computePosition: item1.distance :item1.location :item2.distance :item2.location :item3.distance :item3.location];
+    }
+}
+
 //compute position given distance from S1, S2, S3 and S4. 3 out of 4 would be enough.
 - (NSArray *) computePosition:(double)D1 :(NSArray *)S1 :(double)D2 :(NSArray *)S2 :(double)D3 :(NSArray *)S3{
     double x1 = [S1[0] doubleValue];
@@ -413,6 +458,9 @@ bool showAccel=true,showGyro=true,showMag=true,showTemp=true,showDust=false;//fl
     [position addObject:[NSNumber numberWithDouble:total]];
     total = top / (2 * ((y1 * (x3 - x2)) + (y2 * (x1 - x3)) + (y3 * (x2 - x1))));
     [position addObject:[NSNumber numberWithDouble:total]];
+    
+    self.locationLabel.text = [NSString stringWithFormat:@"Location = (%@,%@)", [position objectAtIndex:0], [position objectAtIndex:1]];
+    
     return position;
 }
 
