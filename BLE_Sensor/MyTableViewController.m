@@ -99,9 +99,6 @@ bool showAccel=true,showGyro=true,showMag=true,showTemp=true,showDust=false;//fl
 //=====================================================================
 - (void) centralManager:(CBCentralManager *)central didDiscoverPeripheral:(CBPeripheral *)peripheral advertisementData:(NSDictionary *)advertisementData RSSI:(NSNumber *)RSSI
 {//discovered a peripheral
-    BLEdevices = [[NSMutableArray alloc]init];//initialise the list of devices
-    BLEservices=[[NSMutableArray alloc]init];//initialise the list of BLE services
-    BLEcharacteristics=[[NSMutableArray alloc]init];//initialise the list of characteristics
     
     //search to see if the device is already on the list
     for (int i=0;i<[BLEdevices count];i++)
@@ -111,12 +108,18 @@ bool showAccel=true,showGyro=true,showMag=true,showTemp=true,showDust=false;//fl
         {//already in the list
             if (RSSI.intValue<=0)
             {
+                [BLEdevices removeObject:item];
                 item.RSSI=RSSI;//update RSSI
+                [BLEdevices insertObject:item atIndex:0];
                 [self.tableView reloadData];
+                
             }
+            [self find3NearestSensor];
             return;
         }
     }
+    
+    if ([peripheral.name length] >= 7 && [[peripheral.name substringToIndex:7] isEqualToString:@"BSN-IoT"]) {
     //a new device is found -> add to the list
     BLE_Device *item1=[[BLE_Device alloc] init];
     item1.deviceName= peripheral.name;
@@ -126,6 +129,7 @@ bool showAccel=true,showGyro=true,showMag=true,showTemp=true,showDust=false;//fl
     [BLEdevices addObject:item1];
     [self find3NearestSensor];
     [self.tableView reloadData];
+    }
 }
 
 - (void)centralManager:(CBCentralManager *)central didFailToConnectPeripheral:(CBPeripheral *)peripheral error:(NSError *)error
@@ -406,25 +410,25 @@ bool showAccel=true,showGyro=true,showMag=true,showTemp=true,showDust=false;//fl
     NSMutableArray *sensorArray = [[NSMutableArray alloc] init];
     for (int i = 0; i < [BLEdevices count]; i++) {
         BLE_Device *item=[BLEdevices objectAtIndex:i];
-        if ([[item.identifier substringWithRange:NSMakeRange(1, 8)] isEqualToString:@"27FE3990"]) {
+        if ([[item.identifier substringWithRange:NSMakeRange(0, 8)] isEqualToString:@"27FE3990"]) {
             item.location = [[NSArray alloc] initWithObjects:@"0",@"0",nil];
             item.n = -0.99;
             item.R1 = -92.3;
             item.distance = [self computeDistance:item.n :item.R1 :[item.RSSI doubleValue]];
             [sensorArray addObject:item];
-        } else if ([[item.identifier substringWithRange:NSMakeRange(1, 8)] isEqualToString:@"B002CE6D"]) {
+        } else if ([[item.identifier substringWithRange:NSMakeRange(0, 8)] isEqualToString:@"B002CE6D"]) {
             item.location = [[NSArray alloc] initWithObjects:@"3",@"2",nil];
             item.n = -1.47;
             item.R1 = -92;
             item.distance = [self computeDistance:item.n :item.R1 :[item.RSSI doubleValue]];
             [sensorArray addObject:item];
-        } else if ([[item.identifier substringWithRange:NSMakeRange(1, 8)] isEqualToString:@"63D045BC"]) {
+        } else if ([[item.identifier substringWithRange:NSMakeRange(0, 8)] isEqualToString:@"63D045BC"]) {
             item.location = [[NSArray alloc] initWithObjects:@"6",@"0",nil];
             item.n = -1.16;
             item.R1 = -93.7;
             item.distance = [self computeDistance:item.n :item.R1 :[item.RSSI doubleValue]];
             [sensorArray addObject:item];
-        } else if ([[item.identifier substringWithRange:NSMakeRange(1, 8)] isEqualToString:@"F164ED61"]) {
+        } else if ([[item.identifier substringWithRange:NSMakeRange(0, 8)] isEqualToString:@"F164ED61"]) {
             item.location = [[NSArray alloc] initWithObjects:@"9",@"3",nil];
             item.n = -0.76;
             item.n = -94;
@@ -455,11 +459,17 @@ bool showAccel=true,showGyro=true,showMag=true,showTemp=true,showDust=false;//fl
     NSMutableArray *position = [NSMutableArray array];
     double top = (alpha * (y3 - y2)) + (beta * (y1 - y3)) + (gamma * (y2 - y1));
     double total = top / (2 * ((x1 * (y3 - y2)) + (x2 * (y1 - y3)) + (x3 * (y2 - y1))));
-    [position addObject:[NSNumber numberWithDouble:total]];
+    [position insertObject:[NSNumber numberWithDouble:total] atIndex:0];
+    top = alpha*(x3 - x2) + beta*(x1 - x3) + gamma*(x2 - x1);
     total = top / (2 * ((y1 * (x3 - x2)) + (y2 * (x1 - x3)) + (y3 * (x2 - x1))));
-    [position addObject:[NSNumber numberWithDouble:total]];
-    
-    self.locationLabel.text = [NSString stringWithFormat:@"Location = (%@,%@)", [position objectAtIndex:0], [position objectAtIndex:1]];
+    [position insertObject:[NSNumber numberWithDouble:total] atIndex:1];
+    //NSNumberFormatter *fmt = [[NSNumberFormatter alloc ]] // *** EDIT HERE ***
+    NSNumber * XposNS = [position objectAtIndex:0];
+    NSNumber * YposNS = [position objectAtIndex:1];
+    double Xpos, Ypos;
+    Xpos = [XposNS doubleValue];
+    Ypos = [YposNS doubleValue];
+    self.locationLabel.text = [NSString stringWithFormat:@"Location = (%.2f,%.2f)", Xpos, Ypos];
     
     return position;
 }
