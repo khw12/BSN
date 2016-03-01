@@ -137,5 +137,13 @@
             </objects>
             <point key="canvasLocation" x="-531" y="485"/>
         </scene>
+        <!--Painting View Controller-->
+        <scene sceneID="4Ym-7y-btj">
+            <objects>
+                <viewController storyboardIdentifier="PaintingViewController" id="YYg-4c-5Bc" customClass="PaintingViewController" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nYV-Pr-MDg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-108" y="1387"/>
+        </scene>
     </scenes>
 </document>

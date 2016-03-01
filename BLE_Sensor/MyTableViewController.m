@@ -32,6 +32,13 @@ float dust=0;//variable for storing the current dust value
 NSString *filepath=NULL;//file path for storing data
 bool storedatainfile=true;//store data in file
 bool showAccel=true,showGyro=true,showMag=true,showTemp=true,showDust=false;//flags to show sensor signals
+
+NSArray *painting;
+bool isNearPainting;
+NSNumber *timeStartNearPainting;
+NSNumber *timeStampSinceNearPainting;
+bool viewingPainting;
+
 - (void)viewDidLoad
 {//initialise the objects
     [super viewDidLoad];
@@ -45,6 +52,10 @@ bool showAccel=true,showGyro=true,showMag=true,showTemp=true,showDust=false;//fl
     UInt32 pdate=[[NSDate date] timeIntervalSince1970];
     NSString *filename=[NSString stringWithFormat:@"Sensor_data_%ld.csv",(unsigned long)pdate];
     filepath=[self GetFilePath:filename];
+    
+    painting = [[NSArray alloc] initWithObjects:@"4",@"1",nil];
+    isNearPainting = false;
+    viewingPainting = false;
 }
 
 -(void) cleanup
@@ -99,10 +110,11 @@ bool showAccel=true,showGyro=true,showMag=true,showTemp=true,showDust=false;//fl
 //=====================================================================
 - (void) centralManager:(CBCentralManager *)central didDiscoverPeripheral:(CBPeripheral *)peripheral advertisementData:(NSDictionary *)advertisementData RSSI:(NSNumber *)RSSI
 {//discovered a peripheral
-    BLEdevices = [[NSMutableArray alloc]init];//initialise the list of devices
-    BLEservices=[[NSMutableArray alloc]init];//initialise the list of BLE services
-    BLEcharacteristics=[[NSMutableArray alloc]init];//initialise the list of characteristics
-    
+    if ([[peripheral.name substringToIndex:3] isEqualToString:@"BSN"]) {
+        BLEdevices = [[NSMutableArray alloc]init];//initialise the list of devices
+        BLEservices=[[NSMutableArray alloc]init];//initialise the list of BLE services
+        BLEcharacteristics=[[NSMutableArray alloc]init];//initialise the list of characteristics
+    }
     //search to see if the device is already on the list
     for (int i=0;i<[BLEdevices count];i++)
     {
@@ -111,7 +123,9 @@ bool showAccel=true,showGyro=true,showMag=true,showTemp=true,showDust=false;//fl
         {//already in the list
             if (RSSI.intValue<=0)
             {
+                [BLEdevices removeObject:item];
                 item.RSSI=RSSI;//update RSSI
+                [BLEdevices insertObject:item atIndex:0];
                 [self.tableView reloadData];
             }
             return;
@@ -401,6 +415,10 @@ bool showAccel=true,showGyro=true,showMag=true,showTemp=true,showDust=false;//fl
     return pow(10, diffR);
 }
 
+- (double) diffDistance:(NSArray *)point1 :(NSArray *)point2 {
+    return sqrt(pow([point1[0] doubleValue] - [point2[0] doubleValue], 2) + pow([point1[1] doubleValue] - [point2[1] doubleValue], 2));
+}
+
 // find 3 nearest sensor to perform triangulation
 - (void) find3NearestSensor {
     NSMutableArray *sensorArray = [[NSMutableArray alloc] init];
@@ -460,6 +478,28 @@ bool showAccel=true,showGyro=true,showMag=true,showTemp=true,showDust=false;//fl
     [position addObject:[NSNumber numberWithDouble:total]];
     
     self.locationLabel.text = [NSString stringWithFormat:@"Location = (%@,%@)", [position objectAtIndex:0], [position objectAtIndex:1]];
+    
+    double distance = [self diffDistance:position :painting];
+    if (distance <= 0.5) {
+        if (isNearPainting) {
+            timeStampSinceNearPainting = [NSNumber numberWithDouble:[[NSDate date] timeIntervalSince1970]];
+            if (timeStampSinceNearPainting.doubleValue >= 30000) {
+                if (!viewingPainting) {
+                    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+                    UIViewController *viewController = [sb instantiateViewControllerWithIdentifier: @"PaintingViewController"];
+                    [self presentViewController:viewController animated:YES completion:nil];
+                    viewingPainting = true;
+                }
+            }
+        } else {
+            timeStartNearPainting = [NSNumber numberWithDouble:[[NSDate date] timeIntervalSince1970]];
+            isNearPainting = true;
+        }
+    } else {
+        if (isNearPainting) {
+            isNearPainting = false;
+        }
+    }
     
     return position;
 }
