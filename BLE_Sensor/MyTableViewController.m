@@ -57,7 +57,6 @@ bool viewingPainting;
     isNearPainting = false;
     viewingPainting = false;
     
-    
     /*
     UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     UIViewController *viewController = [sb instantiateViewControllerWithIdentifier: @"PaintingViewController"];
