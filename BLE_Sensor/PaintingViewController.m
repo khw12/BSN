@@ -13,11 +13,17 @@
 
 - (void)viewDidLoad
 {//initialise the objects
+    
+    self.view.frame = CGRectMake(10,10, 200, 200);
     UIImageView *imageview = [[UIImageView alloc] init];
+    imageview.frame = CGRectMake(10,10, 200, 200);
     UIImage *myimg = [UIImage imageNamed:@"image.jpg"];
+    
     imageview.image=myimg;
-    imageview.frame = CGRectMake(50, 50, 140, 105); // pass your frame here
+    imageview.frame = CGRectMake(50, 50, 200, 200); // pass your frame here
     [self.view addSubview:imageview];
+    
+    UINavigationController *navController = self.navigationController;
 }
 
 @end

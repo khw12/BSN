@@ -56,6 +56,16 @@ bool viewingPainting;
     painting = [[NSArray alloc] initWithObjects:@"4",@"1",nil];
     isNearPainting = false;
     viewingPainting = false;
+    
+    
+    /*
+    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    UIViewController *viewController = [sb instantiateViewControllerWithIdentifier: @"PaintingViewController"];
+    //viewController.navigationController = self.navigationController;
+    //[self presentViewController:viewController animated:YES completion:nil];
+    [self presentModalViewController:viewController animated:YES]; //performSegueWithIdentifier:@"segueToPainting" sender:self];
+    */
+    
 }
 
 -(void) cleanup
@@ -493,7 +503,9 @@ bool viewingPainting;
                 if (!viewingPainting) {
                     UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
                     UIViewController *viewController = [sb instantiateViewControllerWithIdentifier: @"PaintingViewController"];
-                    [self presentViewController:viewController animated:YES completion:nil];
+                    //viewController.navigationController = self.navigationController;
+                    //[self presentViewController:viewController animated:YES completion:nil];
+                    [self presentModalViewController:viewController animated:YES]; //performSegueWithIdentifier:@"segueToPainting" sender:self];
                     viewingPainting = true;
                 }
             }

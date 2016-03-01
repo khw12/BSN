@@ -15,5 +15,6 @@
 #import <UIKit/UIKit.h>
 
 @interface PaintingViewController : UIViewController
+@property (strong, nonatomic) IBOutlet UIButton *cancel;
 
 @end
