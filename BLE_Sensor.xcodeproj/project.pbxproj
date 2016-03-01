@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		12D733F11C85B23200127207 /* PaintingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 12D733F01C85B23200127207 /* PaintingViewController.m */; };
+		12D733F31C85B5F800127207 /* image.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 12D733F21C85B5F800127207 /* image.jpg */; };
 		275110351C5CD5F700538284 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 275110341C5CD5F700538284 /* AppDelegate.m */; };
 		2751103C1C5CD61400538284 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 275110361C5CD61400538284 /* Assets.xcassets */; };
 		2751103D1C5CD61400538284 /* BLE_Device.m in Sources */ = {isa = PBXBuildFile; fileRef = 275110381C5CD61400538284 /* BLE_Device.m */; };
@@ -38,6 +40,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		12D733EF1C85B21200127207 /* PaintingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PaintingViewController.h; path = BLE_Sensor/PaintingViewController.h; sourceTree = SOURCE_ROOT; };
+		12D733F01C85B23200127207 /* PaintingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PaintingViewController.m; path = BLE_Sensor/PaintingViewController.m; sourceTree = SOURCE_ROOT; };
+		12D733F21C85B5F800127207 /* image.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = image.jpg; path = BLE_Sensor/image.jpg; sourceTree = SOURCE_ROOT; };
 		27510FF71C57BBCF00538284 /* BLE_Sensor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BLE_Sensor.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		275110101C57BBCF00538284 /* BLE_SensorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BLE_SensorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2751101B1C57BBCF00538284 /* BLE_SensorUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BLE_SensorUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -111,6 +116,9 @@
 		27510FF91C57BBCF00538284 /* BLE_Sensor */ = {
 			isa = PBXGroup;
 			children = (
+				12D733F21C85B5F800127207 /* image.jpg */,
+				12D733F01C85B23200127207 /* PaintingViewController.m */,
+				12D733EF1C85B21200127207 /* PaintingViewController.h */,
 				275110401C5CD63800538284 /* LaunchScreen.storyboard */,
 				275110421C5CD63800538284 /* Main.storyboard */,
 				275110551C5D831200538284 /* MySensorDataViewController.h */,
@@ -266,6 +274,7 @@
 				275110441C5CD63800538284 /* LaunchScreen.storyboard in Resources */,
 				2751103C1C5CD61400538284 /* Assets.xcassets in Resources */,
 				275110451C5CD63800538284 /* Main.storyboard in Resources */,
+				12D733F31C85B5F800127207 /* image.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -294,6 +303,7 @@
 				2751103F1C5CD61400538284 /* MyTableViewController.m in Sources */,
 				275110471C5CD64600538284 /* main.m in Sources */,
 				2751105B1C5D899200538284 /* GraphView.m in Sources */,
+				12D733F11C85B23200127207 /* PaintingViewController.m in Sources */,
 				275110571C5D831200538284 /* MySensorDataViewController.m in Sources */,
 				275110351C5CD5F700538284 /* AppDelegate.m in Sources */,
 			);
