@@ -461,6 +461,8 @@ bool viewingPainting;
         }
     }
     
+    [sensorArray sortUsingDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"distance" ascending:YES]]];
+    
     if ([sensorArray count] >= 3) {
         BLE_Device *item1 = sensorArray[0];
         BLE_Device *item2 = sensorArray[1];
@@ -499,14 +501,15 @@ bool viewingPainting;
     if (distance <= 0.5) {
         if (isNearPainting) {
             timeStampSinceNearPainting = [NSNumber numberWithDouble:[[NSDate date] timeIntervalSince1970]];
-            if (timeStampSinceNearPainting.doubleValue >= 30000) {
+            timeStampSinceNearPainting = [NSNumber numberWithDouble:[timeStampSinceNearPainting doubleValue] - [timeStartNearPainting doubleValue]];
+            if (timeStampSinceNearPainting.doubleValue >= 500) {
                 if (!viewingPainting) {
+                    viewingPainting = true;
                     UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
                     UIViewController *viewController = [sb instantiateViewControllerWithIdentifier: @"PaintingViewController"];
                     //viewController.navigationController = self.navigationController;
                     //[self presentViewController:viewController animated:YES completion:nil];
                     [self presentModalViewController:viewController animated:YES]; //performSegueWithIdentifier:@"segueToPainting" sender:self];
-                    viewingPainting = true;
                 }
             }
         } else {

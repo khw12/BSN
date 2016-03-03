@@ -186,11 +186,27 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "BLE_Sensor/MyTableViewController.m"
-            timestampString = "478536722.06032"
+            timestampString = "478540223.440227"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "483"
-            endingLineNumber = "483"
+            startingLineNumber = "485"
+            endingLineNumber = "485"
+            landmarkName = "-computePosition::::::"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "BLE_Sensor/MyTableViewController.m"
+            timestampString = "478540223.440227"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "503"
+            endingLineNumber = "503"
             landmarkName = "-computePosition::::::"
             landmarkType = "5">
          </BreakpointContent>
