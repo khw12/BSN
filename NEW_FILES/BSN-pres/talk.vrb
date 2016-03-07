@@ -1,0 +1,19 @@
+\frametitle{Main Program}
+\begin{verbatim}
+1  -(void) main:(NSObject *) RSSI {
+2      NSObject RSSI_use =
+         [self discardMostDistantSensor(RSSI)];
+3      double position =
+         [self getPosition: RSSI_use]; // x, y values
+4      double dist2painting1 =
+         [self computeDistance: position: painting1];
+5      double dist2painting2 =
+         [self computeDistance: position: painting2];
+6      [self reportPosition2server: position];
+7      int nearestPainting = 1;
+8      if (dist2painting1 > dist2painting2) {
+9          nearestPainting = 2;
+10     }
+11     [self updateImageViewer: nearestPainting];
+12 }
+\end{verbatim}
