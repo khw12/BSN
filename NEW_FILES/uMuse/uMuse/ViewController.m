@@ -80,9 +80,9 @@ NSMutableArray *paintings;
     connectedPeripheral=nil;
     // ------------------
     
-    painting1 = [[NSArray alloc] initWithObjects:@"0",@"0",nil]; // batman
-    painting2 = [[NSArray alloc] initWithObjects:@"1", @"0", nil]; // homer
-    painting3 =[[NSArray alloc] initWithObjects:@"0.5", @"0.5", nil]; // mona
+    painting1 = [[NSArray alloc] initWithObjects:@"0",@"0.5",nil]; // batman
+    painting2 = [[NSArray alloc] initWithObjects:@"1", @"0.5", nil]; // homer
+    //painting3 =[[NSArray alloc] initWithObjects:@"0.5", @"0.5", nil]; // mona
     
     isNearPainting = false;
     
@@ -554,7 +554,7 @@ NSMutableArray *paintings;
     
     double distance1 = [self diffDistance:position :painting1];
     double distance2 = [self diffDistance:position :painting2];
-    double distance3 = [self diffDistance:position :painting3];
+    //double distance3 = [self diffDistance:position :painting3];
     double distance = distance1;
     nearPainting = 1; // temp
     
@@ -562,9 +562,9 @@ NSMutableArray *paintings;
         distance = distance2;
         nearPainting = 2;
     }
-    if (distance2 < distance3) {
-        nearPainting = 3;
-    }
+    //if (distance2 < distance3) {
+      //  nearPainting = 3;
+   // }
     
     NSString *logDistTxt = [NSString stringWithFormat:@"(x,y)=(%.2f, %.2f), dist= %.2f", Ypos, Xpos, distance];
     NSLog(logDistTxt);
@@ -599,7 +599,8 @@ NSMutableArray *paintings;
     
     Xpos = [[position objectAtIndex:0] doubleValue];
     Ypos = [[position objectAtIndex:1] doubleValue];
-    if (Xpos > 1.5 || Xpos < -0.5 || Ypos > 1 || Ypos < -0.5) {
+    /*
+    if (Xpos > 1.2 || Xpos < -0.2 || Ypos > 0.7 || Ypos < -0.2) {
 
         
         
@@ -616,6 +617,7 @@ NSMutableArray *paintings;
         }
 
     }
+     */
     
     return position;
 }
