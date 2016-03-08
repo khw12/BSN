@@ -46,6 +46,7 @@ NSString *filepath=NULL;//file path for storing data
 bool storedatainfile=true;//store data in file
 bool showAccel=true,showGyro=true,showMag=true,showTemp=true,showDust=false;//flags to show sensor signals
 NSMutableArray *paintings;
+NSMutableData *webdata;
 
 
 - (void)viewDidLoad {
@@ -110,18 +111,32 @@ NSMutableArray *paintings;
 /*  ** PUT SERVER STUFF IN THESE **
 - (IBAction)likeButtonClick:(id)sender {
     // send like and painting id to server
-}
+ }
+*/
  
 - (IBAction)suggestionButtonClick:(id)sender {
     // send a request to server for a suggestion of next painting
     // note
     // painting1 :: batman
     // painting2 :: homer
-    NSString *serverSuggestion;
-    serverSuggestion = [];
-    self.suggestionLabel.text = serverSuggestion;
+    NSString *path = @"";
+    for (NSString *painting in paintings) {
+        path = [path stringByAppendingString:painting];
+        path = [path stringByAppendingString:@","];
+    }
+    if ([path length] > 0) {
+        path = [path substringToIndex:[path length] - 1];
+    }
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
+    [request setURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://129.31.235.139:8080/BLEServer/ble/bleservice/%@", path]]];
+    [request setHTTPMethod:@"PUT"];
+    NSURLConnection *conn = [[NSURLConnection alloc] initWithRequest:request delegate:self];
+    if(conn) {
+        NSLog(@"Connection Successful");
+    } else {
+        NSLog(@"Connection could not be made");
+    }
 }
-*/
 
 // ======================================================
 
@@ -602,17 +617,35 @@ NSMutableArray *paintings;
     NSString *path = @"";
     for (NSString *painting in paintings) {
         path = [path stringByAppendingString:painting];
+        path = [path stringByAppendingString:@","];
+    }
+    if ([path length] > 0) {
+        path = [path substringToIndex:[path length] - 1];
     }
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
     [request setURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://129.31.235.139:8080/BLEServer/ble/bleservice/1/%@", path]]];
     [request setHTTPMethod:@"POST"];
     NSURLConnection *conn = [[NSURLConnection alloc] initWithRequest:request delegate:self];
     if(conn) {
+        webdata = [[NSMutableData alloc] init];
         NSLog(@"Connection Successful");
     } else {
         NSLog(@"Connection could not be made");
     }
 }
+
+#pragma mark –
+#pragma mark NSURLConnection delegates
+
+-(void)connectionDidFinishLoading:(NSURLConnection *)connection
+{
+    NSString *responseStringWithEncoded = [[NSString alloc] initWithData: webdata encoding:NSUTF8StringEncoding];
+    self.suggestionLabel.text = responseStringWithEncoded;
+    
+    // You can do your functions here. If your repines is in XML you have to parse the response using NSXMLParser. If your response in JSON you have use SBJSON.
+}
+
+
 
 
 @end
