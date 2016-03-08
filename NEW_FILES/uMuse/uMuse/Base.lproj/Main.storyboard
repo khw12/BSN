@@ -71,14 +71,6 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uaZ-Gx-gKv">
-                                <rect key="frame" x="215" y="322" width="78" height="30"/>
-                                <state key="normal" title="Ping Friend"/>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aQm-0z-GIc">
-                                <rect key="frame" x="214" y="349" width="70" height="30"/>
-                                <state key="normal" title="Directions"/>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="(x, y) = (" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0dU-kj-xTn">
                                 <rect key="frame" x="20" y="559" width="63" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -109,6 +101,21 @@
                                 <color key="textColor" red="0.66666666666666663" green="0.11764705882352941" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5zq-09-ENi">
+                                <rect key="frame" x="215" y="336" width="93" height="30"/>
+                                <state key="normal" title="Suggest Next"/>
+                                <connections>
+                                    <action selector="suggestionButtonClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="nph-pN-WOV"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text=" " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FOE-6H-CcZ">
+                                <rect key="frame" x="215" y="382" width="112" height="21"/>
+                                <color key="backgroundColor" red="0.5" green="0.0" blue="0.5" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                                <color key="shadowColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -119,9 +126,12 @@
                         <outlet property="imageInfo" destination="edg-8q-1tJ" id="d9G-oP-hSU"/>
                         <outlet property="imageTitle" destination="mca-z5-aYr" id="DOw-wq-65n"/>
                         <outlet property="imageViewer" destination="3fs-Ik-6ce" id="0dL-c7-He0"/>
-                        <outlet property="likeButton" destination="vAO-Pb-5Wl" id="BA3-Gn-6d4"/>
+                        <outlet property="likeButton" destination="vAO-Pb-5Wl" id="ZsM-d4-KWR"/>
                         <outlet property="painterName" destination="ueB-zF-JAa" id="t1A-1X-VzA"/>
                         <outlet property="startButton" destination="ftu-7s-Yrg" id="pV1-2k-oZF"/>
+                        <outlet property="suggestButton" destination="5zq-09-ENi" id="YlT-6T-MWe"/>
+                        <outlet property="suggestionButton" destination="5zq-09-ENi" id="uIe-G9-KpL"/>
+                        <outlet property="suggestionLabel" destination="FOE-6H-CcZ" id="Hew-Bv-q9V"/>
                         <outlet property="xpos" destination="2Yd-90-YAJ" id="rV4-P2-vLn"/>
                         <outlet property="ypos" destination="Qc0-nP-Mhh" id="S38-l1-ZcW"/>
                     </connections>

@@ -32,6 +32,8 @@ NSArray *painting2; // homer
 NSArray *painting3; // mona
 bool isNearPainting;
 
+int nearPainting;
+
 // maybe many here are unused
 
 bool startScan; //flag to indiciate whether or not the program is scanning for BLE devices
@@ -69,9 +71,9 @@ NSMutableArray *paintings;
     connectedPeripheral=nil;
     // ------------------
     
-    painting1 = [[NSArray alloc] initWithObjects:@"0",@"0.25",nil]; // batman
-    painting2 = [[NSArray alloc] initWithObjects:@"1", @"0.25", nil]; // homer
-    painting3 =[[NSArray alloc] initWithObjects:@"0.66", @"0.5", nil]; // mona
+    painting1 = [[NSArray alloc] initWithObjects:@"0",@"0",nil]; // batman
+    painting2 = [[NSArray alloc] initWithObjects:@"1", @"0", nil]; // homer
+    painting3 =[[NSArray alloc] initWithObjects:@"0.5", @"0.5", nil]; // mona
     
     isNearPainting = false;
     
@@ -105,8 +107,21 @@ NSMutableArray *paintings;
     [BLEcharacteristics removeAllObjects];//empty the characteristic list
 }
 
+/*  ** PUT SERVER STUFF IN THESE **
 - (IBAction)likeButtonClick:(id)sender {
+    // send like and painting id to server
 }
+ 
+- (IBAction)suggestionButtonClick:(id)sender {
+    // send a request to server for a suggestion of next painting
+    // note
+    // painting1 :: batman
+    // painting2 :: homer
+    NSString *serverSuggestion;
+    serverSuggestion = [];
+    self.suggestionLabel.text = serverSuggestion;
+}
+*/
 
 // ======================================================
 
@@ -528,16 +543,9 @@ NSMutableArray *paintings;
     self.xpos.text = [NSString stringWithFormat:@"%.2f", Xpos];
     self.ypos.text = [NSString stringWithFormat:@"%.2f", Ypos];
     
-    int nearPainting;
-    
-    
-    
-    // how to decide which painting we are nearest????
-    
-//    nearPainting = 1, 2 or 3???
     double distance1 = [self diffDistance:position :painting1];
     double distance2 = [self diffDistance:position :painting2];
-    //double distance3 = [self diffDistance:position :painting3];
+    double distance3 = [self diffDistance:position :painting3];
     double distance = distance1;
     nearPainting = 1; // temp
     
@@ -545,9 +553,9 @@ NSMutableArray *paintings;
         distance = distance2;
         nearPainting = 2;
     }
-    //if (distance3 < distance3) {
-      //  nearPainting = 3;
-   // }
+    if (distance2 < distance3) {
+        nearPainting = 3;
+    }
     
     NSString *logDistTxt = [NSString stringWithFormat:@"(x,y)=(%.2f, %.2f), dist= %.2f", Ypos, Xpos, distance];
     NSLog(logDistTxt);

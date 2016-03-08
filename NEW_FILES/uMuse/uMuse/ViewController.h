@@ -23,10 +23,13 @@
 @property (weak, nonatomic) IBOutlet UIImageView *imageViewer;
 @property (weak, nonatomic) IBOutlet UILabel *imageTitle;
 @property (weak, nonatomic) IBOutlet UILabel *painterName;
-@property (weak, nonatomic) IBOutlet UIButton *likeButton;
 @property (weak, nonatomic) IBOutlet UITextView *imageInfo;
+@property (weak, nonatomic) IBOutlet UIButton *likeButton;
 
-
+// suggestion stuff
+@property (weak, nonatomic) IBOutlet UIButton *suggestionButton;
+@property (weak, nonatomic) IBOutlet UIButton *suggestButton;
+@property (weak, nonatomic) IBOutlet UILabel *suggestionLabel;
 
 // sensor stuff
 @property (weak, nonatomic) IBOutlet UILabel *locationLabel;
