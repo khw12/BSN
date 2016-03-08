@@ -32,7 +32,16 @@ NSArray *painting2; // homer
 NSArray *painting3; // mona
 bool isNearPainting;
 
+bool userOutside;
+
+bool userIsOutside = false;
+
 int nearPainting;
+
+NSNumber *timeStampSinceOutside;
+NSNumber *timeStartOutside;
+
+bool isOutside = false;
 
 // maybe many here are unused
 
@@ -591,8 +600,21 @@ NSMutableArray *paintings;
     Xpos = [[position objectAtIndex:0] doubleValue];
     Ypos = [[position objectAtIndex:1] doubleValue];
     if (Xpos > 1.5 || Xpos < -0.5 || Ypos > 1 || Ypos < -0.5) {
-        [self sendPosition];
-        exit(0);
+
+        
+        
+        if (userIsOutside) {
+            timeStampSinceOutside = [NSNumber numberWithDouble:[[NSDate date] timeIntervalSince1970]];
+            timeStampSinceOutside = [NSNumber numberWithDouble:[timeStampSinceOutside doubleValue] - [timeStartOutside doubleValue]];
+            if (timeStampSinceOutside.doubleValue >= 500) {
+                [self sendPosition];
+                exit(0);
+            }
+        } else {
+            timeStartOutside = [NSNumber numberWithDouble:[[NSDate date] timeIntervalSince1970]];
+            userIsOutside = true;
+        }
+
     }
     
     return position;
