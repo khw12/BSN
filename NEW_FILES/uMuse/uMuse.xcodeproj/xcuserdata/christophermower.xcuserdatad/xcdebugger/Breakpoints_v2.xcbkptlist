@@ -10,12 +10,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "uMuse/ViewController.h"
-            timestampString = "479043092.228208"
+            timestampString = "479135430.878669"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "35"
-            endingLineNumber = "35"
-            landmarkName = "connectedPeripheral"
+            startingLineNumber = "39"
+            endingLineNumber = "39"
+            landmarkName = "BLEcharacteristics"
             landmarkType = "19">
          </BreakpointContent>
       </BreakpointProxy>
