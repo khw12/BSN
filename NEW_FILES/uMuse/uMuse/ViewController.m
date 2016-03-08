@@ -43,7 +43,7 @@ float dust=0;//variable for storing the current dust value
 NSString *filepath=NULL;//file path for storing data
 bool storedatainfile=true;//store data in file
 bool showAccel=true,showGyro=true,showMag=true,showTemp=true,showDust=false;//flags to show sensor signals
-
+NSMutableArray *paintings;
 
 
 - (void)viewDidLoad {
@@ -85,6 +85,7 @@ bool showAccel=true,showGyro=true,showMag=true,showTemp=true,showDust=false;//fl
     UInt32 pdate=[[NSDate date] timeIntervalSince1970];
     NSString *filename=[NSString stringWithFormat:@"Sensor_data_%ld.csv",(unsigned long)pdate];
     filepath=[self GetFilePath:filename];
+    paintings = [[NSMutableArray alloc] init];
  
 }
 
@@ -556,22 +557,53 @@ bool showAccel=true,showGyro=true,showMag=true,showTemp=true,showDust=false;//fl
         self.imageTitle.text = @"Batman and Robin";
         self.painterName.text = @"By Joker";
         self.imageInfo.text = @"Why so serious?";
+        if ([paintings indexOfObject: @"Batman"] != NSNotFound) {
+            [paintings addObject:@"Batman"];
+        }
     }
     else if (nearPainting == 2) {
         self.imageViewer.image = [UIImage imageNamed:@"./images/img-homer.jpg"];
         self.imageTitle.text = @"Screaming Homer";
         self.painterName.text = @"By Bart Simpson";
         self.imageInfo.text = @"Eat my shorts.";
+        if ([paintings indexOfObject: @"Homer"] != NSNotFound) {
+            [paintings addObject:@"Homer"];
+        }
     }
     else if (nearPainting == 3) {
         self.imageViewer.image = [UIImage imageNamed:@"./images/img-mona.jpg"];
         self.imageTitle.text = @"Mona Atkinson";
         self.painterName.text = @"By Baldrick";
         self.imageInfo.text = @"I have a cunning plan!";
+        if ([paintings indexOfObject: @"Mona"] != NSNotFound) {
+            [paintings addObject:@"Mona"];
+        }
     }
     
+    Xpos = [[position objectAtIndex:0] doubleValue];
+    Ypos = [[position objectAtIndex:1] doubleValue];
+    if (Xpos > 1.5 || Xpos < -0.5 || Ypos > 1 || Ypos < -0.5) {
+        [self sendPosition];
+        exit(0);
+    }
     
     return position;
+}
+
+- (void) sendPosition {
+    NSString *path = @"";
+    for (NSString *painting in paintings) {
+        path = [path stringByAppendingString:painting];
+    }
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
+    [request setURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://129.31.235.139:8080/BLEServer/ble/bleservice/1/%@", path]]];
+    [request setHTTPMethod:@"POST"];
+    NSURLConnection *conn = [[NSURLConnection alloc] initWithRequest:request delegate:self];
+    if(conn) {
+        NSLog(@"Connection Successful");
+    } else {
+        NSLog(@"Connection could not be made");
+    }
 }
 
 
